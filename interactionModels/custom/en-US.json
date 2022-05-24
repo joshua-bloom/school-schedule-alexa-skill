@@ -1,0 +1,188 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "whipple hill schedule",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "CaptureScheduleIntent",
+          "slots": [
+            {
+              "name": "class_names",
+              "type": "NAME_OF_CLASSES",
+              "samples": [
+                "No",
+                "Yes"
+              ],
+              "multipleValues": {
+                "enabled": true
+              }
+            }
+          ],
+          "samples": [
+            "my class schedule is {class_names}",
+            "My classes are {class_names}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "FinishedScheduleIntent",
+          "slots": [],
+          "samples": [
+            "finished",
+            "done"
+          ]
+        },
+        {
+          "name": "CaptureClassSchedule",
+          "slots": [],
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Chemistry",
+                "synonyms": [
+                  "Organic Chemistry"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "History",
+                "synonyms": [
+                  "United States History",
+                  "US History",
+                  "World History",
+                  "Big History"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "English",
+                "synonyms": [
+                  "English Lit",
+                  "English Literature"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Calc",
+                "synonyms": [
+                  "Multi-Variable Calculus",
+                  "Single Variable Calculus",
+                  "Multi-Variable Calc",
+                  "Single Variable Calc",
+                  "Calculus"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Latin"
+              }
+            },
+            {
+              "name": {
+                "value": "Bio",
+                "synonyms": [
+                  "Biology"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "CompSci",
+                "synonyms": [
+                  "Honors Computer Science",
+                  "Honors Comp Sci",
+                  "Honors CS",
+                  "Computer Science"
+                ]
+              }
+            }
+          ],
+          "name": "NAME_OF_CLASSES"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "CaptureScheduleIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.979536937925"
+          },
+          "slots": [
+            {
+              "name": "class_names",
+              "type": "NAME_OF_CLASSES",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.979536937925.1499751617422",
+                "elicitation": "Elicit.Slot.979536937925.1499751617422"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Intent.979536937925",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "I heard {class_names} . Is that correct?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.979536937925.1499751617422",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Did you list out all of your classes?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.979536937925.1499751617422",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "I heard {class_names} . Is that correct?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "7"
+}
